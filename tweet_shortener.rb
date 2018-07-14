@@ -13,9 +13,14 @@ def dictionary
     "and" => "&"
   }
 
-  word_list[word]
 end
 
 def word_substituter(string)
-
+  string.split.map { |word|
+    if dictionary.keys.include?(word.downcase)
+      word = dictionary[word.downcase]
+    else
+      word
+    end
+  }
 end
